@@ -1,0 +1,95 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='shortcut icon' href='favicon.ico' />
+    <title>Random App</title>
+</head>
+<body>
+    <style>
+        body {
+            background-image: url("cats.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+
+        }
+        .btn {
+            padding: 10px;
+            background-color: rgb(33, 156, 201);
+            color: white;
+            width: 100px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+        }
+        
+        #main {
+            display: block;
+            width: 250px;
+            height: 150px;
+            margin: auto;
+            position: relative;
+            top: 100px;
+        }
+        span {
+            display: block;
+            padding: 50px 10px;
+            margin: 10px;
+            background-color: cornflowerblue;
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+        }
+        #random {
+            background-color: black;
+            color: white;
+            width: 220px;
+            padding: 10px;
+            transition: all 0.5s;
+        }
+        #random:hover {
+            background-color: rgb(101, 120, 130);
+            color: coral;
+        
+        }
+    </style>
+    <div id="main">
+        <table>
+            <tr>
+                <td><button id="1" class="btn">N.T.H Phượng</button></td>
+                <td><button id="2" class="btn">N.T.T Quyên</button> </td>
+            </tr>
+            <tr>
+                <td><button id="1" class="btn">T.T.Thảo</button></td>
+                <td><button id="4" class="btn">T.T.Thảo2</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><span id="result">Result</span></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button class= "btn" id="random">Random</button></td>
+            </tr>
+        </table>        
+    </div>
+
+    <script>
+        
+        const value = [];
+        const btn = document.getElementsByClassName("btn");
+        const result = document.getElementById("result");
+        for (let i = 0; i < btn.length - 1; i++) {
+            value.push(btn[i].innerHTML);
+        }
+        const rd = document.getElementById("random");
+        rd.onclick = makeRandom;
+        // define function here: 
+        function makeRandom() {
+            const rdNumber = Math.floor(Math.random() * 4);
+            result.innerText = value[rdNumber];
+        }
+
+    </script>
+</body>
+</html>
